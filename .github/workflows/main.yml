@@ -3,7 +3,8 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Usamos 22.04 porque tiene todas las librerías que Buildozer necesita por defecto
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout code
@@ -18,7 +19,7 @@ jobs:
       - name: Build with Buildozer
         run: |
           export PATH=$PATH:$HOME/.local/bin
-          # Esto fuerza la compilación sin interactividad
+          # El 'yes' responde automáticamente a las licencias de Android SDK
           yes | buildozer -v android debug
 
       - name: Upload APK
