@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        # Esta es la ruta exacta y verificada
-        uses: akshayaurora/buildozer-action@master
+        # Esta es la sintaxis oficial más actualizada
+        uses: kivy/buildozer-action@v1
         with:
           buildozer_version: master
           python_version: 3.11
