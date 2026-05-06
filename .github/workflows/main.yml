@@ -3,17 +3,16 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-22.04 # Usamos una versión específica de Linux más estable
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        # Esta es la versión oficial mantenida por el equipo de Kivy
-        uses: kivy/buildozer-action@master
+        # Esta es la ruta exacta y verificada
+        uses: akshayaurora/buildozer-action@master
         with:
-          save_buildozer_cache: true
           buildozer_version: master
           python_version: 3.11
           subcommand: android debug
