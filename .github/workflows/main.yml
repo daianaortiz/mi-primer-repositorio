@@ -1,19 +1,19 @@
 name: Build APK
-
 on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # Usamos una versión específica de Linux más estable
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        # Usamos la versión de acción mantenida por la comunidad que es más estable
-        uses: s0enke/buildozer-action@v1
+        # Esta es la versión oficial mantenida por el equipo de Kivy
+        uses: kivy/buildozer-action@master
         with:
+          save_buildozer_cache: true
           buildozer_version: master
           python_version: 3.11
           subcommand: android debug
